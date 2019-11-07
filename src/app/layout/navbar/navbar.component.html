@@ -1,0 +1,14 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="#">Desafio</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#conteudoNavbarSuportado" aria-controls="conteudoNavbarSuportado" aria-expanded="false" aria-label="Alterna navegação">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="conteudoNavbarSuportado">
+    <ul class="navbar-nav mr-auto"></ul>
+    <form class="form-inline my-2 my-lg-0">
+      <div class="mr-sm-2">{{ user?.email }}</div>
+      <button class="btn btn-outline-success my-2 my-sm-0" (click)="sair()">Sair</button>
+    </form>
+  </div>
+</nav>

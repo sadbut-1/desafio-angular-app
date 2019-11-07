@@ -1,0 +1,18 @@
+<app-navbar [user]="userProfile"></app-navbar>
+<div class="container-fluid mt-4">
+  <div class="row">
+    <div class="col-md-2">
+      <ul class="nav flex-column">
+        <li class="nav-item">
+          <button class="btn btn-success" (click)="userService.change('create')">Novo</button>
+        </li>
+      </ul>
+    </div>
+    <div class="col-sm-10">
+      <app-list *ngIf="userService.selectedScreen == 'list'"></app-list>
+      <app-create *ngIf="userService.selectedScreen == 'create'" ></app-create>
+      <app-edit *ngIf="userService.selectedScreen == 'edit'"></app-edit>
+      <app-view *ngIf="userService.selectedScreen == 'view'" ></app-view>
+    </div>
+  </div>
+</div>

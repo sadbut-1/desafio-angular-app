@@ -1,0 +1,41 @@
+<div class="row mb-3">
+  <form class="form-inline">
+    <div class="form-group mx-sm-3 mb-2">
+      <label for="filter" class="sr-only">Filtrar</label>
+      <input type="text" class="form-control" id="filter" name="filter" placeholder="Nome" [(ngModel)]="userService.filterName">
+    </div>
+    <button type="submit" class="btn btn-primary mb-2" (click)="userService.filter()">Filtrar</button>
+  </form>
+</div>
+<div *ngIf="!error">
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Nome</th>
+        <th>CPF</th>
+        <th>Email</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let user of userService.users.docs">
+        <td>{{ user.name }}</td>
+        <td>{{ user.cpf }}</td>
+        <td>{{ user.email }}</td>
+        <td class="pull-right">
+          <i class="fa fa-eye pointer mr-3" (click)="userService.change('view', user)"></i>
+          <i class="fa fa-edit pointer mr-3" (click)="userService.change('edit', user)"></i>
+          <i class="fa fa-trash pointer" (click)="userService.delete(user)"></i>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="btn-group btn-group-toggle" data-toggle="buttons" *ngIf="userService.users.pages > 1">
+    <label class="btn btn-secondary" *ngFor="let x of pages(userService.users.pages); let i = index;" >
+      <input type="radio" name="options" id="option1" (click)="userService.listUsers(i+1)"> {{ i + 1 }}
+    </label>
+  </div>
+</div>
+<div *ngIf="userService.error">
+  {{ userService.error }}
+</div>

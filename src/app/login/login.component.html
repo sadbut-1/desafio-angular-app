@@ -1,0 +1,17 @@
+<div class="row justify-content-md-center" style="margin-top: 250px;">
+  <div class="col-md-4 align-self-center">
+    <div class="card">
+      <div class="card-header">LOGIN</div>
+      <div class="card-body">
+        <div class="form-group">
+          <input type="text" class="form-control" name="email" [(ngModel)]="email" (keyup.enter)="login()" placeholder="Usuario">
+        </div>
+        <div class="form-group">
+          <input type="password" class="form-control" name="password" [(ngModel)]="password" (keyup.enter)="login()" placeholder="Senha">
+        </div>
+        <p *ngIf="error" class="text-danger"><small>{{ error }}</small></p>
+        <button class="btn btn-lg btn-info btn-block" (click)="login()">Entrar</button>
+      </div>
+    </div>
+  </div>
+</div>
